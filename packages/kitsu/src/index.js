@@ -6,7 +6,7 @@ import { camel, deserialise, error, kebab, query, serialise, snake, splitModel }
  * Creates a new `kitsu` instance
  *
  * @param {Object} [options] Options
- * @param {string} [options.baseURL=https://kitsu.io/api/edge] Set the API endpoint
+ * @param {string} [options.baseURL=https://kitsu.io/api/edge/] Set the API endpoint
  * @param {Object} [options.headers] Additional headers to send with the requests
  * @param {boolean} [options.camelCaseTypes=true] If enabled, `type` will be converted to camelCase from kebab-casae or snake_case
  * @param {'kebab'|'snake'|'none'} [options.resourceCase=kebab] Case to convert camelCase to. `kebab` - `/library-entries`; `snake` - /library_entries`; `none` - `/libraryEntries`
@@ -116,7 +116,7 @@ export default class Kitsu {
    * Fetch resources (alias `fetch`)
    *
    * @memberof Kitsu
-   * @param {string} model Model to fetch data from
+   * @param {string} model Endpoint to fetch data from. [`:resource`](https://jsonapi.org/format/#document-resource-objects), [`:resource/:id`](https://jsonapi.org/format/#document-resource-objects), []`:resource/:id/:relationship`](https://jsonapi.org/format/#document-resource-object-relationships) or []`:resource/:id/relationships/:relationship`](https://jsonapi.org/format/#document-resource-object-linkage)
    * @param {Object} [params] JSON-API request queries. Any JSON:API query parameter not mentioned below is supported out of the box.
    * @param {Object} [params.page] [JSON:API Pagination](http://jsonapi.org/format/#fetching-pagination). All pagination strategies are supported, even if they are not listed below.
    * @param {number} [params.page.limit] Number of resources to return in request (Offset-based) - **Note:** For Kitsu.io, max is `20` except on `libraryEntries` which has a max of `500`
